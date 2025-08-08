@@ -46,19 +46,4 @@
 
 ---
 
-## 🎥 Sneak Peek
-
-<p align="center">
-  <img src="https://media.giphy.com/media/LMt9638dO8dftAjtco/giphy.gif" width="400" alt="DevOps Animation">
-</p>
-
----
-
-## ⭐️ Support
-
-If you like this content, please ⭐️ the repo and share it with your community!
-
----
-
-> *"Learning never exhausts the mind, it only ignites curiosity." – Dr. Kastro Kiran V.*
-
+## Happy Learning
