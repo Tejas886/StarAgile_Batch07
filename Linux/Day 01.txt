@@ -1,0 +1,159 @@
+-----------------------
+Day 01
+-----------------------
+Modules;
+Linux and Shell Scripting (3 days)
+DevOps Overview (2 days)
+DevOps on AWS Cloud (2 days)
+Git and GitHub (5 days)
+Maven (1 day)
+Jenkins (5 days)
+
+Add-ons;
+Tomcat
+Nexus
+SonarQube
+
+Projects;
+Java Standalone Project
+Netflix Clone Application Project
+Hotstar Clone Application Project
+AWS-DevOps Project
+
+Experience;
+3+ years of experience
+
+Interview Questions
+
+About me;
+Kastro Kiran V
+AWS and DevOps Trainer
+Machine Learning
+
+Educational Background;
+PhD - Machine Learning
+Civil Engineering
+
+Linux Commands - Day 01;
+sudo yum update -y (Amazon Linux)
+sudo apt update -y (Ubuntu)
+
+To clear the screen
+clear (or) control + l
+
+pwd
+date
+cal (or) cal -1
+cal 2025
+cal -3
+top
+control + d (or) control + c
+
+whoami
+
+Types of users;
+By default in Linux OS, we have 2 types of users;
+	1. ec2-user (default)
+	2. root
+
+ec2-user Vs. root 
+ec2-user doesn't allow you to install softwares/packages
+ec2-user doesn't allow you to create new users
+ec2-user doesn't have administrator permissions
+
+root user have all the privileges 
+
+sudo su (or) sudo -i (or) sudo -s
+exit (or) control + d
+
+To create files;
+touch
+cat
+vi (or) vim
+
+ls (or) ls -l (or) ll
+touch <FileName>
+
+kastro1.java kastro2.java .... kastro10.java
+touch kastro{1..5}.java
+
+cat command will allow you to create a file and also allows you to write the content inside that file
+Note: If the file is not available, cat command will first create that file and then allows you to write the content
+
+cat > kastro.txt
+cat kastro.txt
+cat >> kastro.txt (It will preserve the existing content and will allows you to write the new content)
+
+touch Vs. cat
+touch will create an empty file
+cat will create a file and allows you to write the content
+cat command will overwrite the existing content and will only keep the latest content (>)
+
+vi is a text editor in Linux
+Using vi we can create a file and also we can write the content inside a file
+
+vi kastro.txt
+Go into the insert mode ----> press "i" ----> Write the content 
+To save and come out of the file ----> press "esc" ----> To save and quit from the file ----> :wq ---> Hit "enter"
+:wq ---> save and quit
+:q! ---> force quite without saving
+:w ---> only to save, not to quit from the file
+
+rm -rf *
+
+To create directories;
+Directory is nothing but a folder
+mkdir <Name>
+
+To find whether it is a file or a directory;
+Execute ll (or) ls -l
+If the first character is "d", then it is a directory
+If the first character is "-", then it is a file
+
+cd .. ---> Change Directory
+
+~ ----> represents default path (/home/ec2-user) (/home/ubuntu)
+
+Wherever you are there in Linux, if you want to go to /root path, execute "cd"
+
+rmdir <Dir.Name>
+
+Shell Scripting Videos
+https://youtube.com/playlist?list=PLs-PsDpuAuTeT2iRQpNs0sl-sXFD10I1C&si=sTWhx3KazL87VhfD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
