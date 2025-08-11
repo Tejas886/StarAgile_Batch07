@@ -11,7 +11,7 @@
 
 | 🔢 | Tool                 | Description                                       |
 |----|----------------------|---------------------------------------------------|
-| 1️⃣ | **Linux & Shell Scripting** | Basics to Advanced scripting techniques |
+| 1️⃣ | **Linux & Shell Scripting** | Basics to Advanced scripting techniques — [🎥 Shell Scripting Lectures](https://www.youtube.com/playlist?list=PLs-PsDpuAuTeT2iRQpNs0sl-sXFD10I1C) |
 | 2️⃣ | **DevOps Overview**         | Understanding the DevOps culture         |
 | 3️⃣ | **DevOps on Cloud**         | AWS and other cloud tools for DevOps     |
 | 4️⃣ | **Git & GitHub**            | Version control and collaboration         |
