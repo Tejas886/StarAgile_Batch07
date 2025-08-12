@@ -1,0 +1,50 @@
+Linux Commands - Part 2
+----------------------------------------
+Stream Editor (SED)
+SED is used to replace one word with another word without opening the file
+
+
+Linux Directory Structure
+
+File Permissions in Linux
+In Linux, for any file or a directory we have 3 permissions
+	r 	- read
+	w	- write
+	x	- execute
+
+Every file/directory will have 9 characters
+These 9 characters are divided into 3 categories
+	1. user (u)		- first 3 characters
+	2. group (g)		- second 3 characters
+	3. others (o)		- third 3 characters
+
+rw-	r--	r--  kastro.txt
+
+Editing the file permissions;
+chmod
+
+File permissions using numbers;
+0 - no permissions
+1 - execute
+2 - write
+3 - write (2) and execute (1)
+4 - read
+5 - read (4) and execute (1)
+6 - read (4) and write (2)
+7 - read (4) and write (2) and execute (1)
+
+chmod ugo + x
+chmod 111 kastro.txt
+
+u+r g+rx o+rw
+
+Working with Custom Users;
+ec2-user
+root
+
+CHOWN
+It is used to change the file/directory ownership
+
+
+
+
