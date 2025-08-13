@@ -1,0 +1,70 @@
+Linux Commands - Level 3
+------------------------------------------------
+Package Managers
+~~~~~~~~~~~~~~~~
+Package is nothing but a softwares
+Linux		- yum
+Ubuntu		- apt
+
+Environment Variables
+~~~~~~~~~~~~~~~~~~
+variable --- key-value pairs
+name = kastro
+gender = male
+role = MLOps
+
+export name=kastro
+export gender=male
+printenv
+echo $name
+echo $gender
+unset name
+unset gender
+
+Setting up password based authentication for a user
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Control + x
+Y
+Enter
+
+Systemctl
+~~~~~~~~~~~
+systemctl is used to manage services in Linux machines
+start a service
+stop a service
+restart a service
+
+systemctl start httpd
+systemctl stop httpd
+
+Networking Commands
+~~~~~~~~~~~~~~~~~~~~~
+ping - to check the network connectivity
+wget - to download the file from internet
+curl - to send http request to an url
+ifconfig - to get the ip address of your machine
+
+Transferring the files from windows to Linux
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+WinSCP
+
+
+
+Transferring the files from Linux to Linux
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
