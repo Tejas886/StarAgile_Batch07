@@ -1,0 +1,74 @@
+Maven
+------------------------------------------------
+Module 1: Linux and Shell Scripting
+Module 2: DevOps Overview
+Module 3: DevOps on Cloud (last 2 days)
+Module 4: Build Tool - Maven
+
+~~~~~~~~~~~~
+MAVEN
+~~~~~~~~~~~~
+1. Maven is a build tool that is used to create the initial project folder structure to develop the source code of the application - Developers POV
+2. Maven is used to build the application - DevOps Engineers POV
+3. Based on different programming languages, we have different build tools
+	Java		- Maven
+	Python		- PyBuilder
+	Ruby		- Rakes
+	.net			- MS Builder
+				- Ant, Gradle...
+4. Developers will write the source code of the application... (.java) ----> compile the source code ----> we will do using Maven
+5. Maven is used for the projects which are developed by using JPL
+6. Maven is also called as Java Build Tool
+7. If you want to work with Maven, we need to install and setup Java
+8. Maven is an open-source s/w and it is available for FREE of cost
+
+-----------------------------------------
+=> Features of Maven
+-----------------------------------------
+1. Maven is used to create the initial project folder structure 
+
+2. Using Maven we can download the dependencies that are required to develop the project
+Dependency?
+	House ----> Bricks ----> Steel, Sand, Water... (Dependencies)
+	Netflix ----> Java ----> Spring, SpringBoot... (Dependencies)
+How to download the dependencies?
+	Before Maven, developers used to download and install all these dependencies in their local system
+How Maven will download the dependencies?
+	All the dependencies that are required for the project will be configured in a file which is known as "pom.xml"
+	POM - Project Object Model
+From where we have to get the dependencies?
+	mvnrepository.com
+
+3. Using Maven we can compile the source code of the application
+	.java (Source code of the application - Human Readable Language) -----> .class (Machine Understandable Language)
+	The process of converting the .java files into .class files is known as Compilation
+	Using Maven we can do the compilation
+	Once we get the .class file we can then execute the code and then we can see the output
+	If you want to see the output, java has to be installed
+
+			Compile			Execute
+	.java ------------------> .class ------------------> JVM ------------------> Output
+
+
+4. 50 .java files -----> 50 .class files
+When we have multiple .java files, using Maven we can package all the .java files.
+Once after packaging, we can directly compile them
+When we package we will get artifacts
+Artifacts will have different extensions based on the type of application
+	1. Standalone Applications		- .jar (Java Archive)
+	2. Web Applications			- .war (Web Archive)
+	3. Enterprise Applications		- .ear (Enterprise Archive)
+
+Maven is developed by using JPL
+Maven is developed by Apache Organization
+
+
+
+
+
+
+
+
+
+
+
