@@ -1,0 +1,25 @@
+Module <No.>: Git and GitHub - 5 days
+
+https://git-scm.com/downloads/win
+
+Installation of Git on VMs;
+Amazon Linux ----> sudo yum install git -y
+Ubuntu ----> sudo apt install git -y
+
+Check the version ----> git --version
+
+Configuration of git;
+git config --global user.name "<UserName>"
+git config user.name
+
+git config --global user.email "<UserEmail>"
+git config user.email
+
+git config --list
+
+Note: Git configuration is one time activity
+
+How to remove git credentials?
+In PC  Credentials Manager  Windows Credentials  Select the git related creds  remove
+
+Note: All git commands starts with “git”
