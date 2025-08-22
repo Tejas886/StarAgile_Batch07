@@ -1,0 +1,132 @@
+~~~~~~~~~~~~
+MAVEN
+~~~~~~~~~~~~
+1. Configuration of Java and Maven in local system
+2. Maven Terminology
+3. Creating initial project folder structure
+4. Maven Repositories
+5. Maven Goals
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Configuration of Java and Maven in local system
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=> Download & Install Java Software:
+~ In order to download the Java Software, we need to create an account in Oracle Website.
+~ Weblink: https://www.oracle.com/in/java/technologies/downloads/#jdk24-windows
+
+=> Configuration of Java Software:
+~ After installation of Java Software, we have to set JAVA_HOME in environment variables.
+~ The variables which are used by our PC are called environment variables.
+~ Two types of environment variables: 1. User Variables 2. System Variables
+
+~ Once after downloading and installing the java s/w, follow the below steps;
+
+=> Setting up the JAVA_HOME page for system variables:
+C Drive - Program Files - Java - jdk - Copy the jdk folder path - In the search box of PC, type "Environment" and select 'Edit System Environment Varibles' - A dialogue box will open - Advanced - Environment Variables - A dialogue box will open - System Variables - New - A dialogue box will open - Variable Name: JAVA_HOME, Variable Value: <Paste the path of jdk folder> - OK - OK - OK.
+
+=> Setting up the path for Java:
+C Drive - Program Files - Java - jdk - bin - Copy the bin folder path - In the search box of PC, type Environment and select 'Edit System Environment Varibles' - A dialogue box will open - Advanced - Environment Variables - A dialogue box will open - System Variables - Select the "path" - Edit - New - Paste the path - OK - OK - OK.
+
+=> How to check whether java is working or not:
+Open Command Prompt ----> java -version ----> You should see the Java Version Number/Id
+
+=> How to download Maven from Apache Website:
+Google ----> Download apache maven (https://maven.apache.org/download.cgi) ----> "Binary Zip Archive" and click on the link next to it ----> The file gets downloaded in the Zip format ----> Extract the zip file ----> Copy the folder ----> Paste the folder in the C Drive
+
+=> Configuration of Maven Software:
+=> Setting up the MAVEN_HOME in system environment variables:
+C Drive - Paste the extracted zip folder in C Drive - Apache Maven folder - Copy the folder path - In the search box of PC, type Environment and select 'Edit System Environment Variables - A dialogue box will open - Advanced - Environment Variables - A dialogue box will open - System Variables - New - Variable Name: MAVEN_HOME, Variable Value: <Paste the path of maven folder> - OK - OK - OK.
+
+=> Setting up the path for Maven:
+C Drive - Apache folder - Bin Folder - Copy the bin folder path - In the search box of PC, type Environment and select 'Edit System Environment Varibles' - A dialogue box will open - Advanced- Environment Variables - A dialogue box will open - System Variables - Select the "path" - Edit - New - Paste the path - OK - OK - OK.
+
+=> How to check whether Maven is working or not:
+Open Command Prompt ----> mvn --version ----> You should see the Maven Version Number/Id
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2. Maven Terminology
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. archetype - represents what type of project/applications developers are creating
+	1.1. Standalone Applications	- artifact		- .jar (Java Archive)
+	1.2. Web Applications			- artifact		- .war (Web Archive)
+	1.3. Enterprise Applications		- artifact		- .ear (Enterprise Archive)
+
+2. groupid - represents what is the organization name
+
+3. artifactID - represents what is the project name or project module name
+	Netflix - movies page
+		netflix-movies
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3. Creating initial project folder structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3.1. How to create stand alone application using Maven
+mvn archetype:generate -DgroupId=in.StarAgile -DartifactId=Netflix -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+Whenever we create initial project folder structure, there are 2 things that will be available inside the folder structure.
+	1. src folder
+
+	2. pom.xml file
+
+3.2. How to create web application using Maven
+mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=in.StarAgile -DartifactId=Hotstar -DinteractiveMode=false
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+4. Maven Repositories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Local Repo
+2. Central Repo
+3. Remote Repo
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+5. Maven Goals
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Any maven goal will start with "mvn"
+1. Compile
+	mvn compile		-----> .java files will be converted to .class files. A new folder will get created which is knonw as "target" folder.
+
+2. Test
+	mvn test			-----> It will do the unit testing of the code
+
+3. Package*
+	mvn package		-----> It will generate the new artifacts. A new folder will get created which is knonw as "target" folder.
+
+4. Clean*
+	mvn clean		-----> It will delete the existing artifacts (deletes the target folder)
+
+Note: Target folder consists of artifacts
+Note: All the maven goals should be executed in the path where "pom.xml" file is available
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Module <No.>: Git and GitHub - 5 days
+
+https://git-scm.com/downloads/win
+
+Installation of Git on VMs;
+Amazon Linux ----> sudo yum install git -y
+Ubuntu ----> sudo apt install git -y
+
+Check the version ----> git --version
+
+Configuration of git;
+git config --global user.name "<UserName>"
+git config user.name
+
+git config --global user.email "<UserEmail>"
+git config user.email
+
+git config --list
+
+Note: Git configuration is one time activity
+
+How to remove git credentials?
+In PC  Credentials Manager  Windows Credentials  Select the git related creds  remove
+
+Note: All git commands starts with “git”
+ 
+
+
+
+
+
+
