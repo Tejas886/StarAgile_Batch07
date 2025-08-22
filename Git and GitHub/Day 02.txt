@@ -1,0 +1,68 @@
+=> Stages in Git
+	a) Working Directory/Area
+	b) Staging Area
+	c) Local Repo Area
+	d) Remote Repo Area (GitHub) 
+
+=> Git Workflow
+	Create a folder
+	Open git bash terminal
+	Initialize the Git
+	Create Files
+	Write the content inside the files
+	Add the files to the staging area
+	Commit the files to local repo area
+	Push the files to remote repo area
+
+=> 
+Create a folder
+Open git bash terminal
+Initialize the Git
+Create Files
+git status ---> will let you know what is the status of a file
+git add . ----> will add all the files to the staging area
+git add <FileName> ----> will add only a specific file to the staging area
+git commit -m "<Message>" <FileName>
+	Note: Giving the file name is optional while working with "git commit" command
+
+To see the commit history
+git log
+git log --oneline
+git log --oneline -2 ----> to see the latest 2 commits in a shorter way
+git log -2 ----> to see the latest 2 commits in a detailed way
+
+git show ----> it will show the changes made in the latest commit
+git show <CommitID> ----> it will show the changes made to a specific commit
+
+git log --stat ---> it will show which files were modified and also will show what are the lines that are modified (deleted lines and added lines will be shown.) It will also show even if the files are removed
+
+git log -p -2 ----> it will shows the latest 2 commits with the differences
+git log --pretty=oneline ---> it will show the full commit id and the commit message
+
+git log --oneline --author="<AuthorName"> ----> to see the commits made by a specific author
+git log --pretty=format:"%h-%an, %ar:%s" ----> to see the commit id and the person who has made the commit and when they have made and the commit message
+
+git blame <FileName> ----> to know how many commits were made to a specific file along with that the commit ids, messages and time stamp
+
+git diff <CommitID1>..<CommitID2>
+
+git diff is also used to see the changes b/w working tree and staging area
+
+git commit --amend -m "<NewCommitMessage>" ----> to change the latest commit
+git rebase
+
+647644c (HEAD -> master) pythononefile
+e7e0f15 added 4th line
+
+
+
+
+git restore
+
+
+
+
+
+
+
+
