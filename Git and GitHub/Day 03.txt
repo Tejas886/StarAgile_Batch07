@@ -1,0 +1,144 @@
+=> GIT RESTORE
+If you want to recover a deleted file we will use git restore command
+Note: You should know which file was deleted
+
+Scenario 1: Deleted but not staged
+
+Scenario 2: Deleted and Staged for Commit
+
+Scenario 3: Deleted, Staged and Committed
+
+Scenario 4: If you dont know the file name
+
+
+=> GIT STASH
+10.00 AM ----> TL ----> Assigned a task ----> Create file and write some code -----> 10.10 you started working on the task......Task is still going on
+	When the work is still going on, will you add the file to the staging area? NOOOO
+	When the work is still going on, will you commit the file? NOOOO
+	Partially completed task shouldn't be added and committed.
+	To proceed with new task we will add the current task to an area which is known as STASHING AREA
+	Stash is a place where we can temporarily store the partially completed task
+
+11.30 AM ----> TL ----> Dont do the current task, there is a new task (create a file) which is of immediate priority. First complete the new task and then go to your previous task
+
+Before stashing the content in file is
+This is a sample stash file
+This file is having java code
+This file is written by
+
+Once the file is stashed, you will not see any content
+And if we do "git status" working tree is clean
+
+git stash apply
+git stash list
+git stash apply <StashID>
+
+=> GitHub
+GitHub is the place where we store the source code of the application.
+To work with GitHub we need to signup to GitHub
+GitHub account is completely free
+GitHub supports 2 GB of storage for Free tier accounts
+
+=> Signup to GitHub 
+
+=> In GitHub we can create repositories.
+Generally we have 2 types of repos;
+	1. Public repo		--- which can accessed by anyone, even without a GitHub account
+	2. Private repo	--- which is accessible only to you
+
+=> Creation of Repo.
+
+Every repo. will have an unique repo URL
+The use of the URL is to access the repo from local to remote and remote to local
+https://github.com/Rajan-Kumar-01/public-repo-demo.git
+
+=> Get the code available in remote repo to local
+git clone <Repo URL>
+Whenever we clone a remote repo, a .git folder will be available by default
+By default when we create a GitHub repo, a branch gets created which is known as "main"
+When we clone the remote repo to local, the main branch will be visible at the end of the command terminal
+
+Create a file in local
+Add and Commit
+git push -u origin main
+it will show failed to connect. Because we have to configure with PAT
+
+
+
+=> Send the code from local to remote
+
+=> Make the changes in remote directly (create a file) and observe the changes in local
+GIT PULL - git pull will pull only the changes that are available in the remote repo
+
+=> 2 developers are working
+	dev1 - local system --- git pull (10.00 AM) --- starts a creating a new file --- add and commit --- (10.30 AM) tries to push the code to remote from local
+	dev2 - remote repo --- created a file in remote (10.20 AM)
+
+=> FORKING A REPO
+If you want to get the repo from one GitHub account to another GitHub account, then we can do fork
+When we do fork automatically the changes made by owner will automatically sync to your repo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
