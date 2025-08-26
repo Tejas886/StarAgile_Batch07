@@ -1,0 +1,90 @@
+=> Scenario: Sending the code from Local to Remote Repo (We haven't cloned the repo)
+	We will send the code to a new GitHub repo
+
+=> Scenario: Can we move the files from working area to local repo area directly (by skipping the staging area)?
+				NO
+
+=> BRANCHES 
+
+git branch
+git branch <BranchName>
+git checkout <BranchName>
+
+Note: Whenever we swtich to a new branch (for the first time) from the exisiting branch, if there are any files in the existing branch, all those files will also be available in the new branch as well
+
+To see the list of branches ----> git branch
+To see the list of remotes branches ----> git branch -r
+To see the list of all branches (local and remote) ----> git branch -a
+To see the number of branches in remote ----> git branch -r |wc -l
+To see the number of branches in local ----> git branch |wc -l
+To see the number of all branches (local and remote) ----> git branch -a |wc -l
+
+=> .gitignore
+
+=> To rename a branch ----> git branch -m <OldBranchName> <NewBranchName>
+
+=> Pull request (Branch Merging) - Remote to Remote
+
+=> To delete a branch ----> git branch -D <BranchName>
+
+=> Branch Merging from Local to Local
+
+=> GIT REBASE
+It is used to add files from one branch to another files
+
+Merge Vs Rebase
+Merge will show files, rebase will not show
+
+=> Merge Conflict
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
