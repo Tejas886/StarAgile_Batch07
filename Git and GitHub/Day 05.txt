@@ -1,0 +1,195 @@
+=> Merge Conflict
+
+Project: Java vs Python Merge Conflict
+mkdir lang-conflict && cd lang-conflict
+git init
+echo "Hello World" > code.txt
+git add code.txt
+git commit -m "Initial: add base file"
+
+Dev1 → work on branch1 (Java code)
+#Create a branch (branch1) write code inside it
+git checkout -b branch1
+cat > code.txt <<'EOF'
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello from Java!");
+    }
+}
+EOF
+
+git add code.txt
+git commit -m "Dev1: add Java code"
+
+Dev2 → work on branch2 (Python code)
+git checkout master
+
+# Create new branch and write code inside it
+git checkout -b branch2
+cat > code.txt <<'EOF'
+def main():
+    print("Hello from Python!")
+
+if __name__ == "__main__":
+    main()
+EOF
+
+git add code.txt
+git commit -m "Dev2: add Python code"
+
+Merge → conflict
+git checkout master
+
+#Merge branch1 first (clean):
+git merge branch1
+
+# Now try merging branch2:
+git merge branch2
+
+👉 You’ll see:
+CONFLICT (content): Merge conflict in code.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Resolve conflict
+notepad code.txt   
+
+It will look like this:
+<<<<<<< HEAD
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello from Java!");
+    }
+}
+=======
+def main():
+    print("Hello from Python!")
+
+if __name__ == "__main__":
+    main()
+>>>>>>> branch2
+
+Decide final version
+You must remove the conflict markers and decide how to keep both.
+Keep both codes
+Example combined version:
+// Java Version
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello from Java!");
+    }
+}
+
+# Python Version
+def main():
+    print("Hello from Python!")
+
+if __name__ == "__main__":
+    main()
+
+Mark resolved
+git add code.txt
+git commit
+
+Now the conflict is resolved ✅
+
+git log --oneline --graph --decorate --all
+
+Open code.txt → it has both Java and Python.
+
+--------------------------------------------
+Figure out Yourself:
+--------------------------------------------
+Master (code.txt - Hello World)	------> Branch1 (code.txt - Java Code)
+Merge Branch 1 with Master Branch
+Merge Successful
+
+Master (code.txt - Java Code) -----> Branch2 (code.txt - Python Code)
+Merge Branch 2 with Master Branch
+Merge Failure - Conflict
+
+WHYYYY?????
+
+
+=> GIT HUB - Deleting a repo, Changing the Visibility
+
+=> Adding Collaborators to GitHub Repo
+
+=> Git Cherry Pick
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+We generally do the deployment of applications	
+
+What are the possibilities of deploying an app?
+	Web Server (Tomcat, Nginx, JBoss....)
+	Docker Container
+	K8s Cluster
+
+Types of deployments;
+	1. Manual Deployment
+	2. Automated Deployment
+
+Developers -----> Java ----> GitHub 
+
+DevOps Engineer ----> Get the code ----> Build and Package ----> Deploy
+
+In order to deploy java based applications we will use Tomcat as the webserver
+
+To work with Tomcat, Java is required
+Tomcat is developed by using JPL
+
+https://tomcat.apache.org/download-90.cgi
+
+Default port number of Tomcat is 8080
+
+sudo dnf install java-17-amazon-corretto-devel -y
+
+<role rolename="manager-gui" />
+<user username="tomcat" password="tomcat" roles="manager-gui" />
+<role rolename="admin-gui" />  
+<user username="admin" password="admin" roles="manager-gui,admin-gui"/>
+
+
+Whenever developer makes the changes to the code, as a DevOps Engineer we have to build the code.
+The latest war file should be deployed.
+This is manual work
+
+We need to Automate the process of Build and Deployment - JENKINS
+Jenkins is Build and Deployment Automation Tool
+It is also called as CI&CD Tool
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
