@@ -1,0 +1,170 @@
+================
+JENKINS
+================
+Types of Deployments;
+Manual Deployment			
+Automated Deployment
+
+To achieve the Automated Deployment of applications into the servers, we will use Jenkins.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+What is Jenkins?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Jenkins is a CI & CD tool
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+What is CI&CD?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Hotstar ----> Developers will write the code ----> Testing Team will test the code ----> Keeps the code in Repo ----> Version 1
+Hotstar ----> Developers will re-write the code ----> Testing Team will re-test the code ----> Keeps the code in Repo ----> Version 2
+Hotstar ----> Developers will re-write the code ----> Testing Team will re-test the code ----> Keeps the code in Repo ----> Version 3
+Hotstar ----> Developers will re-write the code ----> Testing Team will re-test the code ----> Keeps the code in Repo ----> Version 4
+Hotstar ----> Developers will re-write the code ----> Testing Team will re-test the code ----> Keeps the code in Repo ----> Version 5
+
+CI - Continuous Integration
+	Hotstar ----> Version1 ----> Test the code ----> Build the Code (v1)
+ 	Hotstar ----> Version2 ----> Test the code ----> Build the Code (v2)
+ 	Hotstar ----> Version3 ----> Test the code ----> Build the Code (v3)
+CI - If the process of writing the code, testing the code and building the code continues
+
+CI is a combination CT + CB
+CI = CT + CB
+
+CD - Continuous Delivery
+	If you are manually deploying the code into the servers, we will call that process as Continuous Delivery
+
+CD - Continuous Deployment
+	If you are automating the process of application deployment, we will call that process as Continuous Deployment
+
+CI & CD ----> Continuous Integration and Continuous Deployment
+
+How to achieve CI & CD?
+To achieve CI & CD, we have CI & CD tools;
+	1. Jenkins - being used currently
+	2. Circle CI - outdated
+	3. GitHub Actions - trending
+	4. AWS - AWS Code Pipeline - Specific to a cloud
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Introduction to Jenkins
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Jenkins is a CI & CD tool.
+Using Jenkins we can automate the build and deployment process
+If you want to work with Jenkins, we need to install Java
+By default, Jenkins will run on port number 8080
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Jenkins setup - Amazon Linux 2023 6.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos
+
+sudo dnf update -y
+sudo dnf install java-17-amazon-corretto-devel -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo dnf install jenkins -y
+sudo systemctl daemon-reload
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+
+If you find the node offline; follow the below
+
+This error occurs because Jenkins monitors disk space by default, and your /tmp partition is running low. On Amazon Linux 2023, the /tmp directory is mounted in memory (tmpfs) by default, which is limited even though you have a 30GB EBS volume.
+
+\# Create a new /tmp directory on your EBS volume
+
+sudo mkdir /mnt/tmp
+sudo chmod 1777 /mnt/tmp
+
+\# Move the existing tmp contents
+sudo rsync -av /tmp/ /mnt/tmp/
+
+\# Update fstab to use the new location
+echo "none /tmp tmpfs defaults,size=2G 0 0" | sudo tee -a /etc/fstab
+
+\# Reboot to apply changes
+sudo reboot
+
+~~~~~~~~~~~~~~~~~~~~~~~
+Jenkins Jobs
+~~~~~~~~~~~~~~~~~~~~~~~
+Job is nothing but a task
+
+Jenkins has 2 types of jobs;
+	1. Freestyle Project		-----> All the configurations related to the job will be made using Jenkins UI
+	2. Pipeline Project		-----> All the configurations related to the job will be made using SCRIPT
+
+Build and Deployment Process;
+	1. Get the code from repo (Git Checkout)
+	2. Build the code (Generating the Artifact - .jar or .war)
+	3. Storing the Artifacts (Nexus/JFrog/AWS-S3)
+	4. Code Quality Analysis (SonarQube)
+	5. Deploy the code (Tomcat/Nginx, Docker Containers, Docker-Compose, K8s Cluster)
+
+Overview about Jenkins UI
+
+=============
+Freestyle Jobs
+=============
+In the freestyle project, we will have 6 options to configure;
+	General
+	SCM
+	Triggers
+	Environment
+	Build Steps
+	Post Build Actions
+
+Note: It is not essential to configure all the 6 steps. Based on our job requirement, we will configure only the required steps.
+
+Basic Job
+
+Note: All the job information will be stored in the EC2 instance (EBS)
+Note: The default where the job information will be available is /var/lib/Jenkins/workspace/
+
+2. Execute a shell file/text file
+Build Steps - Execute Shell 
+
+3. Lets say i have a file on EC2 Instance and i want Jenkins to run/execute that file
+
+4. Installing apache using Jenkins as a shell file
+sudo yum install httpd -y
+sudo systemctl enable httpd
+sudo systemctl start httpd
+
+Assignment
+
+5. This Project is Parameterized
+Parameters are used to pass the variables in the key-value pairs during the build process
+
+String Parameter
+Choice Parameter 
+
+a) String Parameter
+String is a group of characters
+
+
+Terraform ----> Automate the infrastructure creation
+	Create
+	Destroy
+
+b) Choice Parameter
+	GitHub Repo ----> Repo URL ----> 5 branches
+
+6. Throttle Build
+To restrict the number of builds to happen in a specific time
+Ex: Lets say i want only 2 builds to happen in 1 hour of time
+60 min --- 2
+60/2 = 30 minutes
+
+7. Integrate the Public GitHub Repo with Jenkins 
+
+8. Build the code available in Public Repo using Jenkins
+
+
+
+
+
+
