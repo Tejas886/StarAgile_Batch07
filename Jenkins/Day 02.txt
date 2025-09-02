@@ -1,0 +1,124 @@
+================
+JENKINS
+================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Jenkins setup - Amazon Linux 2023 6.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos
+
+sudo dnf update -y
+sudo dnf install java-17-amazon-corretto-devel -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo dnf install jenkins -y
+sudo systemctl daemon-reload
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+7. Integrate the Public GitHub Repo with Jenkins 
+
+8. Build the code available in Public Repo using Jenkins
+
+9. Build Triggers
+Build Triggers defines how do you want to build a job.
+	1. Manual Build
+	2. Automated Builds - Trigger builds remotely (e.g., from scripts), Build after other projects are built, Build periodically, GitHub hook trigger for GITScm polling, Poll SCM
+
+Whenever developer commits the changes to the GitHub repo, automatically the changes has to be identified by the Jenkins and the job should get triggered.
+
+9. Build Triggers - Build periodically
+Build Periodically will trigger the job automatically based on the cron expression.
+
+To schedule a job, we will use CRON expression
+* * * * *	-----> Every minute
+H/2 * * * * -----> Every 30 minutes
+H * * * * ----> Every 60 minutes
+
+On Sept 02, 2025 at 9.00 PM i want to schedule a job?
+
+The limitation with Build Periodically option is, unnecessary builds will happen
+Build Periodically doesn't look for the changes committed to the repo.
+It will automatically build the job based on the cron expression.
+This will consume the EBS volume capacity
+
+10.  Build Periodically - Poll SCM
+Poll SCM will build the job only if there is a change in the GitHub repo.
+
+To schedule a job, we will use CRON expression
+* * * * *	-----> Every minute
+H/2 * * * * -----> Every 30 minutes
+H * * * * ----> Every 60 minutes
+
+Poll SCM will wait for 1 minute, and if there is a change committed in that 1 minute, Jenkins will trigger the job
+Poll SCM has a wait time
+
+11.  Build Periodically - GitHub Hook Trigger
+Here there is no wait time. 
+As soon as there is a change in the GitHub repo, Jenkins will identify the change and immediately it will trigger the job
+
+12.  Build Periodically - Build After Other Projects Are Built (Upstream and Downstream Jobs)
+The execution of the next job is dependent upon the execution of the present job
+
+Job01 - Manual Trigger ---- Success
+Job02 - Job 1 should trigger Job2 ---- Success
+Job03 - Job 2 should trigger Job3
+
+Job01 - git checkout
+Job02 - mvn clean
+Job03 - mvn package
+Job04 - Deployment
+
+Note: You need to manually trigger the job atleast once
+
+Job01
+Job02 ----> Job01
+Job03 ----> Job02
+
+Job01 ----> No Upstream Job, Downstream Job is Job02
+Job02 ----> Job01 is Upstream Job, Downstream Job is Job03
+Job03 ----> Job02 is Upstream Job, No Downstream Job
+
+Build Queue is also part of Upstream and Downstream Jobs
+
+13. Build Executor Status
+To change the number of builds to run parallelly we will use Build Executor Status
+
+14. Disk Space Monitoring Thresholds
+
+15. Trigger Builds Remotely
+Jenkins Admin ----> To build the job 
+
+Person 1 ----> Configure the job -----> Jenkins Admin (out of station)
+
+TOKEN NAME
+Jenkins URL with Token Name -----> Jenkins Admin ----> Trigger the URL -----> Username and Password -----> Automatically the job will be built
+
+http://54.147.225.99:8080/job/trigger-remotely/build?token=kastro
+
+JENKINS_URL/job/trigger-remotely/build?token=TOKEN_NAME
+
+
+16. Jenkins Freestyle Project 
+https://github.com/KastroVKiran/tomcat-app-kastro.git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
