@@ -1,0 +1,162 @@
+================
+JENKINS
+================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Jenkins setup - Amazon Linux 2023 6.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos
+
+sudo dnf update -y
+sudo dnf install java-17-amazon-corretto-devel -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo dnf install jenkins -y
+sudo systemctl daemon-reload
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+Assignment: https://youtu.be/ScdedztTaAU?si=TpuQtn4HH7M-n2VC (SonarQube)
+
+17. Storing the Artifacts
+Java -----> Artifact (.jar/.war) -----> Secure by storing in safe place -----> Artifact Repo Tools: Nexus/JFrog, AWS Cloud: S3 Bucket
+
+If you want Jenkins to store the artifact in S3 bucket, we need to install a plugin which is known as "S3 Publisher Plugin"
+
+AWS ----> S3 Bucket with Versioning Enabled
+
+Job1 ----> Build1 ----> version1 of war file -----> S3 Bucket
+Job1 ----> Build2 ----> version2 of war file -----> S3 Bucket
+Job1 ----> Build3 ----> version3 of war file -----> S3 Bucket
+
+How to establish the communication b/w Jenkins and S3 Service in AWS Cloud?
+	1. IAM Role ----> Attach S3FullAccess Permission ----> Attach the IAM Role to the VM where Jenkins is running
+	2. IAM User ----> S3 Full Access ----> Generate Access and Secret Keys ----> Configure in VM (Pre-requisite: Install AWS CLI on VM)
+	3. IAM User ----> S3 Full Access ----> Generate Access and Secret Keys ----> Configure Directly them in the Jenkins UI as S3 Profiles	
+
+September 3, 2025, 20:37:26
+September 3, 2025, 20:39:11
+
+18. Recovering a Deleted Job - Jenkins Disaster Recovery
+DevOps Team ----> 3+ years candidates
+			 ----> Fresher ----> Deleted the Project/Job
+
+Install a plugin - Job Configuration History
+
+Note: Whatever jobs that were created and built after installing the plugin, those jobs can be recovered, if deleted
+
+Additional Plugin: Thin Backup Plugin
+
+19. Email Notification
+
+20. Changing the Jenkins Port Number
+cd /usr/lib/systemd/system ----> jenkins.service ---> Edit the port number ----> Restart Jenkins ----> sudo systemctl restart jenkins
+
+21. Pipelines
+Freestyle Projects are created using Jenkins UI
+Pipeline Projects are created using Scripts (Pipeline Scripts)
+Jenkins Pipeline ---- PaaC (Pipeline as a Code)
+
+What is Pipeline?
+Sequential execution of different stages in a Jenkins job
+
+Reach the office by 9.30 AM (Job)
+
+11.00 PM (Bed Time)	----> 07.00 AM (Wakeup) ----> 07.30 AM (Freshup) ----> 8.00 AM (Started to Office) ----> 9.00 AM (Reached the office) ----> 9.30 AM (In the cabin)
+
+Deploy the App (Job)
+Stage1: Clone/Configure the Repo	----> Stage2: Build the Code ----> Stage3: Store the Artifacts ----> Stage4: Deploy the App ----> Access the App
+	Step1: Clone the Code					Step1: mvn compile		Step1: S3					Step1: Tomcat
+										Step2: mvn package		Step2: Nexus					Step2: Docker
+																							Step3: Docker-Compose
+																							Step4: K8s
+
+Jenkins Pipeline Structure;
+P	- pipeline
+A	- Agent (any)
+S	- Stages
+S	- Steps
+
+Types of Pipeline Scripts;
+1. Declarative
+2. Scripted
+
+Declarative
+	1. Recent and advanced
+	2. Predefined Structure
+	3. We have multiple stages and steps
+	4. Easy to read and manage
+
+Scripted
+	1. Groovy Scripting
+	2. DSL - Domain Specific Language
+	3. Programming - Flexibility
+	4. Hard to read and managed
+	5. It doesn't support code validation
+
+Which is best?
+Declarative
+
+All the Jenkins pipeline scripts will be written in a file which is known as "Jenkinsfile"
+
+Pipeline Project - Netflix Clone
+Git Checkout
+Maven Compilation
+Deploy to Tomcat
+
+
+
+pipeline {
+    agent any
+    
+    tools {
+        maven 'maven3'
+    }
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git 'https://github.com/KastroVKiran/Netflix-Pipeline-Project.git'
+            }
+        }
+        stage('Maven Packaging') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('Tomcat Deployment') {
+            steps {
+                sh 'sudo cp target/NETFLIX-1.2.2.war /root/apache-tomcat-9.0.108/webapps'
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
