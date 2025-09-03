@@ -104,7 +104,13 @@ Git Checkout
 Maven Compilation
 Deploy to Tomcat
 
+https://github.com/KastroVKiran/Netflix-Pipeline-Project.git
 
+<role rolename="manager-gui" />
+<user username="tomcat" password="tomcat" roles="manager-gui" />
+<role rolename="admin-gui" />  
+<role rolename="manager-script" />
+<user username="admin" password="admin" roles="manager-gui,admin-gui,manager-script"/>
 
 pipeline {
     agent any
@@ -131,6 +137,7 @@ pipeline {
         }
     }
 }
+
 
 
 
