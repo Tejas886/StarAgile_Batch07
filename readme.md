@@ -37,7 +37,7 @@
 
 ---
 
-## 🔥 What's Coming? 
+## 🔥 What's Coming? *
 
 - 📝 Step-by-step tutorials  
 - 🎯 Real-time projects  
